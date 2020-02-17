@@ -47,11 +47,13 @@ public class RentalServiceImpl extends AbstractCommonService implements RentalSe
     }
 
     @Override
-    public void returnScooter(Long scooterId, Long dockId) {
+    public ResponseEntity<BasicResponse> returnScooter(Long scooterId, Long dockId) {
         Scooter scooter = extractScooterFromRepository(scooterId);
         checkScooterIsAvailableToReturn(scooter);
         ScooterDock scooterDock = extractScooterDockFromRepository(dockId);
         finalizeScooterReturn(scooter, scooterDock);
+
+        return ResponseEntity.ok(BasicResponse.of(msgSource.OK004));
     }
 
     private ScooterDock extractScooterDockFromRepository(Long dockId) {

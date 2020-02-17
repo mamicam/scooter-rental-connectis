@@ -17,5 +17,5 @@ INSERT INTO public.scooter(id, max_speed, model_name, rental_price, scooter_dock
     (14, 35, 'V-SPEED-1', 29.99, 3, null),
     (15, 20, 'RTT-43z', 15.50, 4, null);
 
-SELECT setval('public.hibernate_sequence', 15, true);
-
+--SELECT setval('public.hibernate_sequence', 15, true);
+--alter sequence ('public.hibernate_sequence' restart with 500);
