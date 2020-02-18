@@ -20,6 +20,7 @@ public class ScooterDockController {
         this.scooterDockService = scooterDockService;
     }
 
+
     @GetMapping(value = "/{scooterDockId}/scooters", produces = "application/json")
     public ResponseEntity<Set<Scooter>> rechargeUserAccount(
             @PathVariable Long scooterDockId

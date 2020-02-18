@@ -64,6 +64,17 @@ public class ScooterDockControllerTest {
                         "}]")
                 );
     }
+
+    @Test
+    public void ifScooterDockDoNotExistShouldReturnHttpCode409AndError() throws Exception {
+        mockMvc
+                .perform(get("/scooter-dock/{scooterDockId}/scooters", 5))
+                .andExpect(status().is(409))
+                .andExpect(content().json("{\"errorCode\": \"ERR008\",\n" +
+                        "\"errorMsg\": \"Dok o podanym id nie istnieje.\",\n" +
+                        "\"status\": \"ERROR\"\n" +
+                        "}"));
+    }
 }
 
 
